@@ -1,0 +1,44 @@
+import Button from "../utils/Button"
+import ListWithCheck from "../utils/ListWithCheck"
+
+const Main = () => {
+
+    const beneficios = [
+        "Alívio Imediato das Dores",
+        "Reduz Inchaços e Inflamações",
+        "Destrava as articulações duras",
+        "Acaba com a dormência",
+        "Aumenta a mobilidade",
+        "Promove a reparação do tecido cartilaginoso",
+    ]
+
+
+    return (
+        <div
+            className="w-full h-[80vh] flex flex-col items-center mt-8 bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk1-scaled-1.jpg)] bg-cover "
+        >
+            <div className="w-[280px]">
+                <img
+                    src="https://curcumy.net.br/wp-content/uploads/2022/12/Ativo-1-2.svg"
+                    className="object-cover"
+                    alt="logo do produto"
+                />
+            </div>
+            <h3 className="text-[#d7a225] font-medium text-2xl w-[550px] text-center mt-6">
+                FÓRMULA AVANÇADA PARA O COMBATE DAS DORES ARTICULARES E DO CORPO
+            </h3>
+            <div className="w-[75%] flex mt-8 gap-4">
+                <div className="w-1/2 p-6">
+                    <img src="https://curcumy.net.br/wp-content/uploads/2023/03/imagem2-991x1024.png" alt="imagem do produto" />
+                </div>
+                <div className="w-1/2">
+                    <h1 className="text-5xl font-bold text-[#522a10]">Alívio das dores nas juntas e do corpo em poucos dias! </h1>
+                    <ListWithCheck  list={beneficios}/>
+                    <Button text={"QUERO ALIVIAR A DOR!"} />
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Main
