@@ -3,9 +3,7 @@ import Button from "../utils/Button"
 const Section6 = () => {
 
     return (
-        <div className="w-full h-[80vh] flex flex-col items-center justify-center py-8 bg-white">
-
-
+        <div className="w-full h-[80vh] flex flex-col items-center justify-center py-20 bg-white">
             <div className="w-4/5 flex items-center">
                 <div className="w-1/2">
                     <h2 className="text-[#522a10] text-4xl font-bold py-4">
