@@ -1,4 +1,5 @@
 import Button from "../utils/Button"
+import OptimizedImg from "../utils/OptimizedImg"
 
 const Section1 = () => {
 
@@ -24,29 +25,29 @@ const Section1 = () => {
 
 
     return (
-        <div className="w-full h-[80vh] bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk2-scaled-1.jpg)] bg-cover ">
+        <div className="w-full pb-16 bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk2-scaled-1.jpg)] bg-cover bg-center ">
 
-            <div className="w-[900px] mt-4 flex flex-wrap justify-center mx-auto">
-                <h2 className="text-[#522a10] text-5xl text-center font-bold p-4">O Curcumy alivia dores causadas por:</h2>
+            <div className="w-full lg:w-[1000px] flex flex-wrap justify-center mx-auto">
+                <h2 className="text-[#522a10] text-3xl md:text-4xl lg:text-5xl text-center font-bold p-4">O Curcumy alivia dores causadas por:</h2>
                 {
                     pains.map(pain =>
                         <div
                             key={pain.text}
-                            className="w-[40%] flex flex-col items-center p-4 gap-4"
+                            className="w-[50%] lg:w-[40%] flex flex-col items-center p-4 gap-4"
                         >
                             <div className="w-1/2">
-                                <img
-                                    src={pain.image}
+                                <OptimizedImg 
+                                    imgs={pain.image}
                                     alt="imagem da dor"
-                                    className="w-full object-cover"
                                 />
                             </div>
-                            <p className="w-2/3 mx-auto text-[#c6941c] font-bold text-2xl text-center">{pain.text}</p>
+                            <p className="w-[90%] lg:w-2/3 mx-auto text-[#c6941c] font-bold text-xl lg:text-2xl text-center">{pain.text}</p>
                         </div>
                     )
                 }
                 <Button text={"QUERO ALIVIAR A DOR!"} />
             </div>
+
         </div>
     )
 }

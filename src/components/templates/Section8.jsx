@@ -1,4 +1,5 @@
 import Button from "../utils/Button"
+import OptimizedImg from "../utils/OptimizedImg"
 
 const Section8 = () => {
 
@@ -22,26 +23,28 @@ const Section8 = () => {
 
 
     return (
-        <div className="w-full py-20 flex flex-col items-center gap-6 bg-[#F7F8EE]">
+        <div className="w-full py-16 flex flex-col items-center gap-6 bg-[#F7F8EE]">
 
-            <h2 className="text-[#6f3700] text-3xl font-bold px-4 ">
+            <h2 className="text-[#6f3700] text-center lg:text-left text-3xl font-bold px-4 ">
                 Conheça o segredo da fórmula do Curcumy.
             </h2>
 
-            <div className="w-4/5 flex gap-8">
+            <div className="w-full lg:w-4/5 px-4 lg:px-0 flex flex-col md:flex-row items-center gap-4 lg:gap-8">
                 {
                     ingredients.map(ingredient =>
-                        <div 
+                        <div
                             key={ingredient.title}
-                            className="w-1/3 flex flex-col items-center justify-center bg-white shadow-xl rounded-2xl p-4"
+                            className="w-[90%] sm:w-3/4  md:w-1/3 flex flex-col items-center justify-center bg-white shadow-xl rounded-2xl p-4 md:p-2 lg:p-4"
                         >
-                            <img 
-                                src={ingredient.img} 
-                                alt="imagem do ingredient" 
-                                className="w-[150px] h-[150px]"
-                            />
+                            <div className="w-[150px]">
+                                <OptimizedImg
+                                    imgs={ingredient.img}
+                                    alt="imagem do ingredient"
+                                />
+                            </div>
+
                             <h3 className="text-[#C69432] font-bold text-center my-4 text-xl">{ingredient.title}</h3>
-                            <p className="text-center px-4 text-lg">{ingredient.text}</p>
+                            <p className="text-center px-4 md:px-2 lg:px-4 text-lg">{ingredient.text}</p>
                         </div>
                     )
                 }

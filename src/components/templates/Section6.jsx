@@ -1,12 +1,14 @@
 import Button from "../utils/Button"
+import OptimizedImg from "../utils/OptimizedImg"
 
 const Section6 = () => {
 
     return (
-        <div className="w-full h-[80vh] flex flex-col items-center justify-center py-20 bg-white">
-            <div className="w-4/5 flex items-center">
-                <div className="w-1/2">
-                    <h2 className="text-[#522a10] text-4xl font-bold py-4">
+        <div className="w-full py-16 flex flex-col items-center justify-center bg-white">
+
+            <div className="w-[90%] sm:w-4/5 flex flex-col lg:flex-row items-center">
+                <div className="w-full lg:w-1/2 text-center lg:text-left">
+                    <h2 className="text-[#522a10] text-2xl md:text-4xl font-bold py-4">
                         O que os especialistas falam sobre o Curcumy?
                     </h2>
                     <p className="italic my-4 text-lg">
@@ -22,21 +24,23 @@ const Section6 = () => {
                         Além do mais, é um suplemento 100% natural, sem efeitos colaterais!&quot;
                     </p>
                 </div>
-                <div className="w-1/2 h-full flex flex-col">
-                    <div className="h-4/5">
-                        <img
-                            className="w-full h-full object-contain"
-                            src="https://curcumy.net.br/wp-content/uploads/2023/03/imagem3-min.png"
+                <div className="w-full md:w-1/2 h-full flex flex-col items-center">
+                    <div className="w-full sm:w-[500px] lg:w-full mt-8 lg:mt-0">
+                        <OptimizedImg
+                            imgs="https://curcumy.net.br/wp-content/uploads/2023/03/imagem3-min.png"
                             alt="imagem do medico"
+                            object="contain"
                         />
                     </div>
-                    <div className="w-full h-1/5 flex flex-col items-center -translate-y-10">
+                    <div className="w-full flex flex-col items-center">
                         <span className="w-full underline text-center italic ">Fernando Luz, desde 1989</span>
-                        <img
-                            className="h-3/5 w-full object-contain"
-                            src="https://curcumy.net.br/wp-content/uploads/2022/12/Assinatura-300x121-1.png"
-                            alt="imagem do medico"
-                        />
+                        <div className="h-[100px]">
+                            <OptimizedImg
+                                imgs="https://curcumy.net.br/wp-content/uploads/2022/12/Assinatura-300x121-1.png"
+                                alt="imagem do medico"
+                                object="contain"
+                            />i
+                        </div>
                     </div>
                 </div>
             </div>

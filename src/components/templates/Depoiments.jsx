@@ -30,17 +30,19 @@ const depoiments = [
 const Depoiments = () => {
 
     return (
-        <div className="w-full h-auto py-4 flex flex-col justify-center items-center bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk3-scaled-1.jpg)] bg-cover">
+        <div className="w-full h-auto py-16 flex flex-col justify-center items-center bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk3-scaled-1.jpg)] bg-cover">
 
-            <h2 className="w-1/2 p-6 my-4 text-center text-white font-bold text-5xl ">Testado e aprovado por milhares de pessoas!</h2>
+            <h2 className="w-full sm:w-2/3 xl:w-1/2 p-6 my-4 text-center text-white font-bold text-3xl md:text-5xl ">
+                Testado e aprovado por milhares de pessoas!
+            </h2>
 
-            <div className="w-4/5 flex justify-center items-center gap-8">
+            <div className="w-full lg:w-4/5 px-8 lg:px-0 flex flex-col md:flex-row justify-center items-center gap-8">
                 {
                     depoiments.map((depoiment, index) =>
                         index < 3 &&
                         <div
                             key={depoiment.id}
-                            className={`w-[300px] h-[550px] bg-white snap-center`}
+                            className={`w-[350px] h-[600px] sm:w-[450px] sm:h-[700px] md:[450px] md:h-[420px] lg:h-[500px] xl:w-[300px] xl:h-[550px] bg-white snap-center`}
                         >
                             <iframe
                                 src={depoiment.link}
@@ -50,14 +52,17 @@ const Depoiments = () => {
                     )
                 }
             </div>
-            <Button text={"QUERO ESSES RESULTADOS!"} />
-            <div className="w-4/5 flex justify-center items-center gap-8 my-8">
+            <Button
+                text={"QUERO ESSES RESULTADOS!"}
+                my="16"
+            />
+            <div className="w-full lg:w-4/5 px-8 lg:px-0 flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
                 {
                     depoiments.map((depoiment, index) =>
                         index >= 3 &&
                         <div
                             key={depoiment.id}
-                            className={`w-[300px] h-[550px] bg-white snap-center`}
+                            className={`w-[350px] h-[600px] sm:w-[450px] sm:h-[700px] md:[450px] md:h-[420px] lg:h-[500px] xl:w-[300px] xl:h-[550px] bg-white snap-center`}
                         >
                             <iframe
                                 src={depoiment.link}
@@ -67,8 +72,11 @@ const Depoiments = () => {
                     )
                 }
             </div>
-            <p  className="w-1/2 p-6 text-center text-white font-medium text-3xl">Pessoas satisfeitas que voltaram a ter uma vida em paz e sem dores</p>
-            <Button text={"QUERO ESSES RESULTADOS!"} />
+            <p className="w-full lg:w-1/2 p-6 text-center text-white font-medium text-2xl md:text-3xl">Pessoas satisfeitas que voltaram a ter uma vida em paz e sem dores</p>
+            <Button
+                text={"QUERO ESSES RESULTADOS!"}
+                my="16"
+            />
         </div>
     )
 }

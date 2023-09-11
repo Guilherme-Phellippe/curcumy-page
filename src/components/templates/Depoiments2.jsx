@@ -1,4 +1,5 @@
 import Button from "../utils/Button";
+import OptimizedImg from "../utils/OptimizedImg";
 
 const depoiments = [
     {
@@ -25,11 +26,11 @@ const depoiments = [
 const Depoiments2 = () => {
 
     return (
-        <div className="w-full h-auto py-16 flex flex-col justify-center items-center">
+        <div className="w-full py-16 flex flex-col justify-center items-center">
 
             <h2 className="p-6 my-4 text-center text-[#6f3700] font-bold text-4xl">Depoimentos reais de quem já usou o Curcumy!</h2>
 
-            <div className="w-4/5 flex justify-center items-center gap-8">
+            <div className="w-[90%] sm:w-3/4 md:w-full lg:w-4/5 flex flex-col md:flex-row justify-center items-center px-4 lg:px-0 gap-4 lg:gap-8 ">
                 {
                     depoiments.map((depoiment, index) =>
                         index < 3 &&
@@ -37,14 +38,16 @@ const Depoiments2 = () => {
                             key={depoiment.id}
                             className={`flex flex-col items-center bg-white bg-gradient-to-tl from-[#271200] to-[#592400]  p-4 rounded-xl shadow-lg`}
                         >
-                            <img
-                                src={depoiment.img}
-                                alt="imagem do resultados"
-                                className="rounded-xl"
-                            />
+                            <div className="w-[250px]">
+                                <OptimizedImg
+                                    imgs={depoiment.img}
+                                    alt="imagem do resultados"
+                                    object="contain"
+                                />
+                            </div>
                             <h3 className="text-white p-2 text-2xl font-bold text-center">{depoiment.name}</h3>
                             <span className="text-yellow-400 text-2xl">★ ★ ★ ★ ★</span>
-                            <p className="text-white pb-4 pt-2">{depoiment.text}</p>
+                            <p className="text-white pb-4 pt-2 text-center">{depoiment.text}</p>
                         </div>
                     )
                 }

@@ -15,6 +15,7 @@ import Section6 from "../components/templates/Section6"
 import Section7 from "../components/templates/Section7"
 import Section8 from "../components/templates/Section8"
 import Section9 from "../components/templates/Section9"
+import Footer from "../components/templates/Footer"
 
 const Home = ()=> { 
     return(
@@ -36,6 +37,7 @@ const Home = ()=> {
             <Sale />
             <Section11 />
             <CommonQuestions />
+            <Footer />
         </div>
     )
 }

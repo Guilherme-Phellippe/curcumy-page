@@ -1,4 +1,7 @@
+import Button from "../utils/Button";
+
 const CommonQuestions = ()=> { 
+
 
     const questions = [
         {
@@ -36,20 +39,36 @@ const CommonQuestions = ()=> {
     ]
 
 
+    const handleClickQuestion = ({ currentTarget })=>{
+        console.log("oi")
+        const h3 = currentTarget.querySelector("h3");
+        const p = currentTarget.querySelector("p");
+
+        h3.classList.toggle("rounded-lg")
+        h3.classList.toggle("rounded-t-lg")
+        p.classList.toggle("rounded-b-lg")
+        p.classList.toggle("hidden")
+    }
+
+
     return(
         <div className="w-full py-16 bg-gradient-to-r from-[#592400] to-[#271200]">
-            <h2 className="text-white text-center text-5xl font-bold">PERGUNTAS FREQUENTES</h2>
-            <div className="w-4/5 mx-auto my-8 flex flex-col gap-4">
+            <h2 className="text-white text-center text-3xl md:text-5xl font-bold">PERGUNTAS FREQUENTES</h2>
+            <div className="w-[90%] sm:w-4/5 mx-auto my-8 flex flex-col gap-4">
                 {
                     questions.map(question =>
-                        <div key={question.q} className="bg-white p-4 rounded-lg group">
-                            <h3>{question.q}</h3>
-                            <p className="hidden group-hover:block py-8 transition-all duration-300">{question.a}</p>
+                        <div 
+                            key={question.q}
+                            onClick={handleClickQuestion}
+                        >
+                            <h3 className="bg-white p-4 rounded-lg font-bold">{question.q}</h3>
+                            <p className="bg-white p-4 hidden transition-all duration-300">{question.a}</p>
                         </div>    
                     )
                 }
 
             </div>
+            <Button text={"QUERO EXPERIMENTAR O CURCUMY!"} />
         </div>
     )
 }
