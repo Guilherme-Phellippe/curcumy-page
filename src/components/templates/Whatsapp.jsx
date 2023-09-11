@@ -30,7 +30,7 @@ const Whatsapp = () => {
 
             <h2 
                 ref={refTextImg}
-                className="w-[200px] absolute top-1/2 opacity-100 -translate-x-full -translate-y-1/2 p-2 left-0 bg-white rounded-xl transition-transform duration-500"
+                className="w-[200px] absolute top-1/2 opacity-100 shadow-md border-[1px] border-[#0002] -translate-x-full -translate-y-1/2 p-2 left-0 bg-white rounded-xl transition-transform duration-500"
             >Olá, como posso te ajudar?</h2>
         </div>
     )
