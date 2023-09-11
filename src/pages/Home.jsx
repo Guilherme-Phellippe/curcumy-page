@@ -22,9 +22,10 @@ const Home = () => {
     const [canLoad, setLoad] = useState();
 
     useEffect(()=>{
-        setTimeout(()=>{
+        const timerout = setTimeout(()=>{
             setLoad(true)
-        }, 5000)
+            clearTimeout(timerout)
+        }, 3000)
     },[])
 
     return (

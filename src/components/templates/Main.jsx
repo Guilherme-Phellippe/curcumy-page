@@ -32,7 +32,7 @@ const Main = () => {
                 <div className="w-[90%] sm:w-[75%] flex flex-col lg:flex-row mt-8 gap-16">
                     <div className="w-full sm:w-[450px] mx-auto">
                         <OptimizedImg
-                            imgs="https://curcumy.net.br/wp-content/uploads/2023/03/imagem2-991x1024.png"
+                            imgs="https://i.ibb.co/wwG9vW2/imagem2-991x1024-1.webp"
                             alt="imagem do produto"
                             object="contain"
                         />
