@@ -52,7 +52,10 @@ const Depoiments2 = () => {
                     )
                 }
             </div>
-            <Button text={"QUERO ESSES RESULTADOS!"} />
+            <Button 
+                text={"QUERO ESSES RESULTADOS!"} 
+                onClick={()=> window.location.href="#container-sales"}
+            />
         </div>
     )
 }

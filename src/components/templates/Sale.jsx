@@ -28,7 +28,7 @@ const Sale = () => {
 
 
     return (
-        <div className="flex flex-col py-16 items-center bg-gradient-to-tl from-[#592400] to-[#271200]">
+        <div id="container-sales" className="flex flex-col py-16 items-center bg-gradient-to-tl from-[#592400] to-[#271200]">
             <h2 className="text-white text-center text-3xl lg:text-4xl p-4 font-bold">ESCOLHA A MELHOR OFERTA PARA VOCÊ</h2>
             <h3 className="text-[#d7a224] text-2xl p-4 text-center sm:text-left">FRASCO EXTRA + FRETE GRÁTIS SOMENTE HOJE!</h3>
             <div className="w-4/5 mx-auto flex flex-col md:flex-row items-center gap-4 my-16">

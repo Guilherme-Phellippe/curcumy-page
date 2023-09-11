@@ -28,7 +28,10 @@ const Section10 = () => {
             </div>
 
 
-            <Button text={"QUERO COMPRAR COM GARANTIA!"} />
+            <Button 
+                text={"QUERO COMPRAR COM GARANTIA!"} 
+                onClick={()=> window.location.href="#container-sales"}
+            />
         </div>
     )
 }

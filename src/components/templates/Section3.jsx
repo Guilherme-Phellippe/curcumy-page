@@ -32,7 +32,10 @@ const Section3 = () => {
 
             </div>
 
-            <Button text={"QUERO ALÍVIO RÁPIDO!"} />
+            <Button 
+                text={"QUERO ALÍVIO RÁPIDO!"} 
+                onClick={()=> window.location.href="#container-sales"}
+            />
         </div>
     )
 }

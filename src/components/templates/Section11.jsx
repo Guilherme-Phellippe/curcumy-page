@@ -26,7 +26,10 @@ const Section11 = () => {
                 </div>
             </div>
 
-            <Button text={"QUERO EXPERIMENTAR O CURCUMY!"} />
+            <Button 
+                text={"QUERO EXPERIMENTAR O CURCUMY!"}
+                onClick={()=> window.location.href="#container-sales"}
+             />
         </div>
     )
 }

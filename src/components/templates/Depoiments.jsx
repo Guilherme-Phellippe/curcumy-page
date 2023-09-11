@@ -54,6 +54,7 @@ const Depoiments = () => {
             </div>
             <Button
                 text={"QUERO ESSES RESULTADOS!"}
+                onClick={()=> window.location.href="#container-sales"}
                 my="16"
             />
             <div className="w-full lg:w-4/5 px-8 lg:px-0 flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
@@ -75,6 +76,7 @@ const Depoiments = () => {
             <p className="w-full lg:w-1/2 p-6 text-center text-white font-medium text-2xl md:text-3xl">Pessoas satisfeitas que voltaram a ter uma vida em paz e sem dores</p>
             <Button
                 text={"QUERO ESSES RESULTADOS!"}
+                onClick={()=> window.location.href="#container-sales"}
                 my="16"
             />
         </div>

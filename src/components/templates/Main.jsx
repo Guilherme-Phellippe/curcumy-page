@@ -42,7 +42,10 @@ const Main = () => {
                             Alívio das dores nas juntas e do corpo em poucos dias! 
                         </h1>
                         <ListWithCheck list={beneficios} />
-                        <Button text={"QUERO ALIVIAR A DOR!"} />
+                        <Button 
+                            onClick={()=> window.location.href="#container-sales"}
+                            text={"QUERO ALIVIAR A DOR!"} 
+                        />
                     </div>
                 </div>
             </div>
