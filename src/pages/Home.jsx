@@ -17,6 +17,7 @@ import Section8 from "../components/templates/Section8"
 import Section9 from "../components/templates/Section9"
 import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
+import Whatsapp from "../components/templates/Whatsapp"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
@@ -51,6 +52,7 @@ const Home = () => {
                     <Suspense fallback={<span>Loading...</span>}><Section11 /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><CommonQuestions /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><Footer /></Suspense>
+                    <Suspense fallback={<span>Loading...</span>}><Whatsapp /></Suspense>
                 </>
             }
         </div>
