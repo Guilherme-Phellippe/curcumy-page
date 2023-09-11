@@ -26,15 +26,13 @@ const Section3 = () => {
                         alt="imagem do produto"
                         object="contain"
                     />
-
-
                 </div>
 
             </div>
 
-            <Button 
-                text={"QUERO ALÍVIO RÁPIDO!"} 
-                onClick={()=> window.location.href="#container-sales"}
+            <Button
+                text={"QUERO ALÍVIO RÁPIDO!"}
+                onClick={() => window.location.href = "#container-sales"}
             />
         </div>
     )

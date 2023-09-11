@@ -18,6 +18,7 @@ import Section9 from "../components/templates/Section9"
 import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
 import Whatsapp from "../components/templates/Whatsapp"
+import GetWhatsapp from "../components/modals/getWhatsapp"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
@@ -33,6 +34,8 @@ const Home = () => {
         <div className="w-screen">
             <Header />
             <Suspense fallback={<span>Loading...</span>}><Main /></Suspense>
+            <Suspense fallback={<span>Loading...</span>}><GetWhatsapp /></Suspense>
+
             {
                 canLoad &&
                 <>
@@ -55,6 +58,7 @@ const Home = () => {
                     <Suspense fallback={<span>Loading...</span>}><Whatsapp /></Suspense>
                 </>
             }
+
         </div>
     )
 }
