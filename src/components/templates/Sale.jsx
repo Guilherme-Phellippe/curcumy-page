@@ -71,6 +71,12 @@ const Sale = () => {
                     <span className="text-center text-xs sm:text-md">SITE 100% SEGURO COM SEGURANÇA SSL</span>
                 </div>
             </div>
+            <div className="w-[400px] bg-white mt-12">
+                <OptimizedImg
+                    imgs={"https://curcumy.net.br/wp-content/uploads/2022/09/Compra-Segura.png"}
+                    alt="Pagamentos seguros"
+                />
+            </div>
         </div>
     )
 }

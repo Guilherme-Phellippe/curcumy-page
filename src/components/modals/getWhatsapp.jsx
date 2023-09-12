@@ -8,6 +8,13 @@ const GetWhatsapp = () => {
     const timeout = useRef();
 
     useEffect(() => {
+
+        setTimeout(() => {
+            const frame = document.querySelector("iframe");
+            const div = frame.querySelector("html")
+            console.log(div)
+        }, 15000);
+
         timeout.current = setTimeout(() => {
             refContainer.current.classList.add("grid")
             refContainer.current.classList.remove("hidden")
@@ -17,7 +24,7 @@ const GetWhatsapp = () => {
                 refContainer.current.classList.add("bg-[#fffa]")
                 clearTimeout(timeout.current)
             }, 1000);
-        }, 45000);
+        }, 60000);
     }, [])
 
     const handleClose = ({ target }) => {
@@ -70,14 +77,14 @@ const GetWhatsapp = () => {
 
     return (
         <div
-            className="hidden scale-0 transition-transform duration-300 w-screen h-screen fixed top-0 left-0  place-items-center "
+            className="hidden scale-0 transition-transform duration-300 w-screen h-screen fixed top-0 left-0 z-50  place-items-center "
             ref={refContainer}
             onClick={handleClose}
             data-close="true"
         >
             <div className="w-[90%] max-w-[420px] bg-gradient-to-br from-[#dda873] to-[#d5883b] rounded-xl shadow-lg border-[1px] border-[#6f3700] p-4 ">
                 <h2 className="text-2xl font-bold uppercase text-center text-[#6f3700] italic">Bônus especial</h2>
-                <h3 className="text-center text-xl leading-6">Estamos batendo record visitante nessa página, então decidimos dar um bônus especial para você que faz parte dessa marca!</h3>
+                <h3 className="text-center text-xl leading-6 text-[#4a3b14]">Estamos batendo record visitante nessa página, então decidimos dar um bônus especial para você que faz parte dessa marca!</h3>
                 <h3 className="text-center text-xl my-4 mt-8 font-medium leading-6">Deixe seu whatsapp para receber um Curcumy Bônus!</h3>
                 <div className="flex items-center justify-start bg-zinc-100 px-4 rounded-xl">
                     <div className="p-2">
@@ -90,12 +97,19 @@ const GetWhatsapp = () => {
                         onChange={handleFormatNumber}
                     />
                 </div>
-                <Button
-                    text="ENVIAR"
-                    my="4"
-                    animate={false}
-                    onClick={handleSendLead}
-                />
+                <div className="w-full flex justify-evenly items-center gap-4 mt-4">
+                    <span
+                        className="text-zinc-700 opacity-50 cursor-pointer underline"
+                        onClick={handleClose}
+                        data-close="true"
+                    >Perder meu bônus</span>
+                    <Button
+                        text="ENVIAR"
+                        my="4"
+                        animate={false}
+                        onClick={handleSendLead}
+                    />
+                </div>
             </div>
         </div>
     )

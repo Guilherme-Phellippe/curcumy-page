@@ -20,7 +20,7 @@ const Whatsapp = () => {
 
     return (
         <div 
-            className="w-[100px] md:w-[120px] flex justify-center fixed bottom-0 md:bottom-2 right-0 md:right-4"
+            className="w-[100px] md:w-[120px] flex justify-center fixed bottom-0 md:bottom-2 right-0 md:right-4 cursor-pointer"
             onClick={handleClickWhatsapp}
         >
             <OptimizedImg

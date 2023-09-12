@@ -2,7 +2,7 @@ import Types from "prop-types"
 
 const Button = ({ onClick, text, icon, px = 4, my = "16", animate = true }) => {
     return (
-        <div className="w-full flex justify-center">
+        <div className="w-auto flex justify-center">
             <button
                 onClick={onClick}
                 className={`${animate && "animate-grow-up"} px-${px} my-${my} flex justify-center items-center gap-2 shadow-xl text-white bg-gradient-to-r from-[#33B044] to-[#148023] rounded-2xl`}
