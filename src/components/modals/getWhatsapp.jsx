@@ -75,7 +75,7 @@ const GetWhatsapp = () => {
             onClick={handleClose}
             data-close="true"
         >
-            <div className="w-[90%] max-w-[400px] bg-gradient-to-br from-[#dda873] to-[#d5883b] rounded-xl shadow-lg border-[1px] border-[#6f3700] p-4 ">
+            <div className="w-[90%] max-w-[420px] bg-gradient-to-br from-[#dda873] to-[#d5883b] rounded-xl shadow-lg border-[1px] border-[#6f3700] p-4 ">
                 <h2 className="text-2xl font-bold uppercase text-center text-[#6f3700] italic">Bônus especial</h2>
                 <h3 className="text-center text-xl leading-6">Estamos batendo record visitante nessa página, então decidimos dar um bônus especial para você que faz parte dessa marca!</h3>
                 <h3 className="text-center text-xl my-4 mt-8 font-medium leading-6">Deixe seu whatsapp para receber um Curcumy Bônus!</h3>
