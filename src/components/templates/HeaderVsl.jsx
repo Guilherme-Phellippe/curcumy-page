@@ -28,10 +28,12 @@ const HeaderVsl = () => {
 
 
     return (
-        city &&
-        <div className="w-full bg-gradient-to-r from-[#5a2400] to-[#231100]">
-            <h2 className="w-full text-xl text-center font-bold text-zinc-100 p-4">
-                Selecionamos <span className="text-[#ff0000] uppercase">{city}</span> por que sabemos que as pessoas aqui estão realmente <span className="text-[#ff0000] uppercase">sofrendo</span> com esse problema.
+        <div className="w-full flex justify-center bg-gradient-to-r from-[#5a2400] to-[#231100]">
+            <h2 className="w-full text-lg md:text-xl text-center font-bold text-zinc-100 px-1 py-3 sm:p-4">
+                Selecionamos você e mais <span className="text-[#ff0000] uppercase">5 </span> 
+                Pessoas proximas {city ? "de ":"do "}
+                <span className="text-[#ff0000] uppercase">{city ? city : "Brasil"} </span> 
+                para participar desse programa.
             </h2>
         </div>
     )

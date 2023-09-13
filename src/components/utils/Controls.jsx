@@ -1,28 +1,39 @@
-import { Play, SpeakerSlash } from "@phosphor-icons/react"
+import { ArrowUDownLeft, Play, SpeakerSlash } from "@phosphor-icons/react"
 import { useEffect, useRef, useState } from "react";
 import Types from "prop-types"
+import { getTimeCurrent } from "../../scripts/calculateTimeWatched";
 
 const Controls = ({ player }) => {
     const pauseRef = useRef();
     const progressRef = useRef();
     const contentStartVideo = useRef();
     const [play, setPlay] = useState();
+    const [userAlreadyWatching, setUserAlreadyWatching] = useState();
 
     useEffect(() => {
-        var counter = Number(localStorage.getItem("timerWatching")) || 0;
+        const timerWatched = JSON.parse(localStorage.getItem("timerWatched"));
+        var counter = timerWatched ? timerWatched.timer : 0;
 
         const interval = setInterval(() => {
-            if(!play || counter >= 100) clearInterval(interval);
+            if (!play || counter >= 100) clearInterval(interval);
 
-            if (counter <= 87)  counter++
-            else if(counter <= 94) counter += 0.15
-            else if(counter <= 100) counter += 0.06
-            
+            if (counter <= 87) counter++
+            else if (counter <= 94) counter += 0.15
+            else if (counter <= 100) counter += 0.06
+
             progressRef.current.style.width = `${Math.floor(counter)}%`;
         }, 1000);
 
-        return () =>  clearInterval(interval);
-    }, [play]);    
+        return () => clearInterval(interval);
+    }, [play]);
+
+
+    useEffect(() => {
+        const timerWatched = localStorage.getItem("timerWatched");
+
+        if (timerWatched ) setUserAlreadyWatching(true)
+        else setUserAlreadyWatching(false)
+    }, [])
 
     const handlePlayPause = async () => {
         if (!player) return
@@ -41,34 +52,35 @@ const Controls = ({ player }) => {
     }
 
     const handleStartVideo = () => {
+        localStorage.removeItem("timerWatched")
         player.setCurrentTime(0)
         player.setMuted(false)
         handleSaveProgress(true);
         contentStartVideo.current.style.display = "none"
     }
 
+    const handleContinueVideo = () => {
+        const timerWatched = JSON.parse(localStorage.getItem("timerWatched"));
+        player.setCurrentTime(timerWatched.timer)
+        player.setMuted(false)
+        handleSaveProgress(true);
+        contentStartVideo.current.style.display = "none"
+    }
 
     const handleSaveProgress = async (canPlay) => {
-        const playUser = JSON.parse(localStorage.getItem("play")) || [];
-        const pauseUser = JSON.parse(localStorage.getItem("pause")) || [];
-        const date = new Date();
-        const days = date.getDate() < 10 ? "0" + date.getDate() : date.getDate().toString();
-        const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-        const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-        const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-        const currenttimeFormated = days + hours + minutes + seconds;
+        const currentTime = Number(getTimeCurrent())
+        var timerWatched = JSON.parse(localStorage.getItem("timerWatched")) || { timer: 0, play: currentTime , pause: currentTime };
 
         if (canPlay) {
-            playUser.push(currenttimeFormated)
-            localStorage.setItem("play", JSON.stringify(playUser))
+            timerWatched.play = Number(currentTime)
+            localStorage.setItem("timerWatched", JSON.stringify(timerWatched))
             setPlay(true)
         } else {
-            pauseUser.push(currenttimeFormated)
-            localStorage.setItem("pause", JSON.stringify(pauseUser))
+            timerWatched.pause = Number(currentTime)
+            localStorage.setItem("timerWatched", JSON.stringify(timerWatched))
             setPlay(false)
         }
     }
-
 
     return (
         <>
@@ -86,15 +98,44 @@ const Controls = ({ player }) => {
             </div>
 
             <div
-                onClick={handleStartVideo}
                 ref={contentStartVideo}
                 className="absolute top-0 left-0 w-full h-full flex justify-center items-center cursor-pointer"
             >
-                <div className="w-3/4 h-3/4 border-1 border-white bg-yellow-500 flex flex-col justify-center items-center rounded-xl shadow-xl">
-                    <h2 className="text-white text-2xl font-bold">Seu video já começou!</h2>
-                    <SpeakerSlash className="text-white text-9xl" />
-                    <h2 className="text-white text-3xl font-bold">Clique para ouvir...</h2>
-                </div>
+                {
+                    userAlreadyWatching ?
+                        <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col items-center rounded-xl shadow-xl">
+                            <h2 className="text-white text-2xl font-bold text-center py-4">Você já começou a assistir esse vídeo</h2>
+                            <div className="flex flex-col gap-4 text-xl text-white font-bold">
+                                <div 
+                                    className="flex items-center gap-2"
+                                    onClick={handleContinueVideo}
+                                >
+                                    <div className="w-[30px] h-[30px] grid place-items-center rounded-full border-2 border-white">
+                                        <Play />
+                                    </div>
+                                    Continuar assistindo?
+                                </div>
+                                <div
+                                    className="flex items-center gap-2"
+                                    onClick={handleStartVideo}
+                                >
+                                    <div className="w-[30px] h-[30px] grid place-items-center rounded-full border-2 border-white">
+                                        <ArrowUDownLeft />
+                                    </div>
+                                    Assistir do inicio?
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div
+                            onClick={handleStartVideo}
+                            className="w-4/5 h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col justify-center items-center rounded-xl shadow-xl"
+                        >
+                            <h2 className="text-white text-2xl font-bold">Seu video já começou!</h2>
+                            <SpeakerSlash className="text-white text-9xl" />
+                            <h2 className="text-white text-3xl font-bold">Clique para ouvir...</h2>
+                        </div>
+                }
             </div>
 
             <div className="w-full h-[10px] absolute bottom-0 left-0 flex justify-start">

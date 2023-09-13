@@ -1,6 +1,5 @@
 import Depoiments2 from "./Depoiments2"
 import OptimizedImg from "../utils/OptimizedImg"
-import { useEffect, useState } from "react";
 
 const comments = [
     {
@@ -181,37 +180,11 @@ const comments = [
 ]
 
 const Comments = () => {
-    const [showComments, setComments] = useState();
-
-    useEffect(()=>{
-
-        const interval = setInterval(()=>{
-            const playUser = JSON.parse(localStorage.getItem("play")) || [];
-            const result1 = playUser.reduce((acc, currentValue) => acc + Number(currentValue), 0);
-            const date = new Date();
-            const days = date.getDate() < 10 ? "0" + date.getDate() : date.getDate().toString();
-            const hours = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
-            const minutes = date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-            const seconds = date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
-            const currenttimeFormated = days + hours + minutes + seconds;
-            const timerWatching = (currenttimeFormated - result1)
-
-            if(timerWatching >= 1100) {
-                setComments(true)
-                clearInterval(interval)
-            }
-        }, 60000)
-
-
-        return ()=> clearInterval(interval)
-    },[])
-
     return (
-        showComments &&
         <div className="w-full flex flex-col items-center py-16 bg-gradient-to-r from-[#361800] to-[#120800]">
-            <div className="w-4/5 flex flex-col bg-white">
+            <div className="w-[95%] md:w-4/5 flex flex-col bg-white">
                 <h2 className="w-full border-2 px-2 py-4 font-medium">{comments.length} comentários</h2>
-                <div className="flex flex-col px-6 py-4 gap-4">
+                <div className="flex flex-col px-2 sm:px-6 py-4 gap-4">
                     {
                         comments.map(item =>
                             <div key={item.id} className="flex flex-col">
@@ -225,7 +198,7 @@ const Comments = () => {
                                     </div>
                                     <div className="w-[90%] flex flex-col">
                                         <h3 className="text-[#3d629c] font-bold">{item.name} disse:</h3>
-                                        <p>{item.comment}</p>
+                                        <p className="leading-5 md:leading-6">{item.comment}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-2 opacity-60 font-light text-sm p-1">
