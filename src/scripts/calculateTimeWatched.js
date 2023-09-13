@@ -21,7 +21,7 @@ export function getTimeCurrent() {
 
 export function calculateTimerByCurrentTimer(){
     const timerWatched = JSON.parse(localStorage.getItem("timerWatched"));
-    const currentTime = getTimeCurrent();
+    const currentTime = getTimeCurrent()
     
     console.log(timerWatched)
     if(timerWatched){
