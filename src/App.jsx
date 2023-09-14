@@ -10,6 +10,8 @@ function App() {
        <Routes>
           <Route path="/" element={<Suspense fallback={<span className="text-xl text-orange-950">CARREGANDO...</span>}><Home /></Suspense>} />
           <Route path="/vsl" element={<Vsl />} />
+          <Route path="/politicas" element={<Vsl />} />
+          <Route path="/termos" element={<Vsl />} />
        </Routes>
     </BrowserRouter>
   )

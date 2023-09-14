@@ -1,5 +1,5 @@
 import { WhatsappLogo } from "@phosphor-icons/react";
-import Button from "../utils/Button";
+import Button from "../components/utils/Button";
 import { useEffect, useRef } from "react";
 import axios from "axios";
 
@@ -8,13 +8,6 @@ const GetWhatsapp = () => {
     const timeout = useRef();
 
     useEffect(() => {
-
-        setTimeout(() => {
-            const frame = document.querySelector("iframe");
-            const div = frame.querySelector("html")
-            console.log(div)
-        }, 15000);
-
         timeout.current = setTimeout(() => {
             refContainer.current.classList.add("grid")
             refContainer.current.classList.remove("hidden")
@@ -24,11 +17,13 @@ const GetWhatsapp = () => {
                 refContainer.current.classList.add("bg-[#fffa]")
                 clearTimeout(timeout.current)
             }, 1000);
-        }, 60000);
+        }, 5000);
     }, [])
 
     const handleClose = ({ target }) => {
         if (target.dataset.close === "true") {
+            // eslint-disable-next-line no-undef
+            fbq("trackCustom", "Lead_dontSendWhatsapp", { whatsapp: false })
             refContainer.current.classList.add("hidden")
             refContainer.current.classList.remove("grid")
             clearTimeout(timeout.current)
@@ -69,6 +64,8 @@ const GetWhatsapp = () => {
                 site: "curcumytratamento.ver-receita.cloud"
             }).catch(err => console.log(err))
             if (response.status === 200) {
+                // eslint-disable-next-line no-undef
+                fbq('track', 'Lead', { Lead: "Whatsapp modal DB" });
                 handleClose({ target: { dataset: { close: "true" } } })
                 alert("Em breve você receberá seu bônus")
             }

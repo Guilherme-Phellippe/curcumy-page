@@ -31,8 +31,16 @@ const Controls = ({ player }) => {
     useEffect(() => {
         const timerWatched = localStorage.getItem("timerWatched");
 
-        if (timerWatched ) setUserAlreadyWatching(true)
-        else setUserAlreadyWatching(false)
+        if (timerWatched) {
+            setUserAlreadyWatching(true)
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Vsl_UserWatchedMoreThan1Time', { describe: "O usuário já assistiu a vsl mais de uma vez" });
+        }
+        else {
+            setUserAlreadyWatching(false)
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Vsl_UserWatchingForTheFirstTime', { describe: "O usuário está assistindo pela primeira vez" });
+        }
     }, [])
 
     const handlePlayPause = async () => {
@@ -43,10 +51,14 @@ const Controls = ({ player }) => {
         if (isPaused) {
             btnPlay.style.opacity = "0"
             handleSaveProgress(true);
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Vsl_Play', { describe: "O usuário deu play na VSL" });
             player.play();
         } else {
             btnPlay.style.opacity = "1"
             handleSaveProgress(false);
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Vsl_Pause', { describe: "O usuário deu pause na VSL" });
             player.pause();
         }
     }
@@ -56,6 +68,8 @@ const Controls = ({ player }) => {
         player.setCurrentTime(0)
         player.setMuted(false)
         handleSaveProgress(true);
+        // eslint-disable-next-line no-undef
+        fbq('trackCustom', 'Vsl_Start', { describe: "O usuário começou a assistir a VSL" });
         contentStartVideo.current.style.display = "none"
     }
 
@@ -64,12 +78,14 @@ const Controls = ({ player }) => {
         player.setCurrentTime(timerWatched.timer)
         player.setMuted(false)
         handleSaveProgress(true);
+        // eslint-disable-next-line no-undef
+        fbq('trackCustom', 'Vsl_Continue', { describe: "O usuário continuou assistindo da onde ele parou." });
         contentStartVideo.current.style.display = "none"
     }
 
     const handleSaveProgress = async (canPlay) => {
         const currentTime = Number(getTimeCurrent())
-        var timerWatched = JSON.parse(localStorage.getItem("timerWatched")) || { timer: 0, play: currentTime , pause: currentTime };
+        var timerWatched = JSON.parse(localStorage.getItem("timerWatched")) || { timer: 0, play: currentTime, pause: currentTime };
 
         if (canPlay) {
             timerWatched.play = Number(currentTime)
@@ -106,7 +122,7 @@ const Controls = ({ player }) => {
                         <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col items-center rounded-xl shadow-xl">
                             <h2 className="text-white text-2xl font-bold text-center py-4">Você já começou a assistir esse vídeo</h2>
                             <div className="flex flex-col gap-4 text-xl text-white font-bold">
-                                <div 
+                                <div
                                     className="flex items-center gap-2"
                                     onClick={handleContinueVideo}
                                 >

@@ -3,6 +3,14 @@ import OptimizedImg from "../utils/OptimizedImg"
 
 const Section3 = () => {
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(section 3) - Veja por que o Curcumy" });
+        window.location.href="#container-sales";
+    }
+    
+    
+
     return (
         <div className="w-full flex flex-col items-center justify-center py-16">
 
@@ -32,7 +40,7 @@ const Section3 = () => {
 
             <Button
                 text={"QUERO ALÍVIO RÁPIDO!"}
-                onClick={() => window.location.href = "#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
     )

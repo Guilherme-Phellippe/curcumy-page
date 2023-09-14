@@ -1,30 +1,42 @@
 import { CreditCard, Key, Lock, ShieldCheck, ThumbsUp, Truck } from "@phosphor-icons/react"
 import OptimizedImg from "../utils/OptimizedImg"
+import Types from "prop-types"
 
-const Sale = () => {
+const Sale = ({ page }) => {
 
     const products = [
         {
             id: 0,
             img: "https://curcumy.net.br/wp-content/uploads/2023/04/12-462x1024.png",
             link: "https://ev.braip.com/campanhas/cpa/camd2m298",
+            qntd: 12,
         },
         {
             id: 1,
             img: "https://curcumy.net.br/wp-content/uploads/2023/04/5-464x1024.png",
             link: "https://ev.braip.com/campanhas/cpa/camzovodx",
+            qntd: 5,
         },
         {
             id: 2,
             img: "https://curcumy.net.br/wp-content/uploads/2023/04/3-min-465x1024.png",
             link: "https://ev.braip.com/campanhas/cpa/cam2kjkd1",
+            qntd: 3,
         },
         {
             id: 3,
             img: "https://curcumy.net.br/wp-content/uploads/2023/04/1-min-462x1024.png",
             link: "https://ev.braip.com/campanhas/cpa/camokmkod",
+            qntd: 1,
         },
     ]
+
+
+    const handlePurchaseProduct = (product) => {
+        // eslint-disable-next-line no-undef
+        fbq('track', 'InitiateCheckout', { qntd: product.qntd, page });
+        window.location.href = product.link
+    }
 
 
     return (
@@ -34,13 +46,15 @@ const Sale = () => {
             <div className="w-4/5 mx-auto flex flex-col md:flex-row items-center gap-4 my-16">
                 {
                     products.map((product, index) =>
-                        <div key={product.id} className={`${index === 0 && "animate-grow-up"} w-4/5 sm:w-1/2 cursor-pointer`}>
-                            <a href={product.link}>
-                                <OptimizedImg
-                                    imgs={product.img}
-                                    alt="imagem do produto"
-                                />
-                            </a>
+                        <div 
+                            key={product.id} 
+                            onClick={()=> handlePurchaseProduct(product)}
+                            className={`${index === 0 && "animate-grow-up"} w-4/5 sm:w-1/2 cursor-pointer`}
+                        >
+                            <OptimizedImg
+                                imgs={product.img}
+                                alt="imagem do produto"
+                            />
                         </div>
                     )
                 }
@@ -79,6 +93,10 @@ const Sale = () => {
             </div>
         </div>
     )
+}
+
+Sale.propTypes = {
+    page: Types.string.isRequired
 }
 
 export default Sale

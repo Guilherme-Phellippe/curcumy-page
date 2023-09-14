@@ -22,6 +22,14 @@ const Section5 = () => {
     ]
 
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(section 5) - Qual o modo de uso?" });
+        window.location.href="#container-sales";
+    }
+    
+
+
     return (
         <div className="w-full py-16 flex flex-col items-center justify-center  bg-[#f7f8ee]">
 
@@ -52,7 +60,7 @@ const Section5 = () => {
 
             <Button 
                 text={"QUERO EXPERIMENTAR O CURCUMY!"} 
-                onClick={()=> window.location.href="#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
     )

@@ -21,6 +21,12 @@ const Section8 = () => {
         },
     ]
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(section 8) - Conheça o segredo da fórmula do Curcumy." });
+        window.location.href="#container-sales";
+    }
+    
 
     return (
         <div className="w-full py-16 flex flex-col items-center gap-6 bg-[#F7F8EE]">
@@ -52,7 +58,7 @@ const Section8 = () => {
 
             <Button
                 text={"EU QUERO CONHECER O CURCUMY!"}
-                onClick={() => window.location.href = "#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
 

@@ -3,6 +3,12 @@ import OptimizedImg from "../utils/OptimizedImg"
 
 const Section10 = () => {
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(section 10) - Garantia de resultados" });
+        window.location.href="#container-sales";
+    }
+
     return (
         <div className="w-full py-16 flex flex-col items-center gap-6 bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk4-scaled-1.jpg)] bg-cover">
 
@@ -30,7 +36,7 @@ const Section10 = () => {
 
             <Button 
                 text={"QUERO COMPRAR COM GARANTIA!"} 
-                onClick={()=> window.location.href="#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
     )

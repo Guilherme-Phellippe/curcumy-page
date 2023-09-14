@@ -22,7 +22,11 @@ const Section1 = () => {
         },
     ]
 
-
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(Section 1) - Curcumy alivia dores" });
+        window.location.href="#container-sales";
+    }
 
     return (
         <div className="w-full pb-16 bg-[url(https://curcumy.net.br/wp-content/uploads/2023/03/desk2-scaled-1.jpg)] bg-cover bg-center ">
@@ -47,7 +51,7 @@ const Section1 = () => {
                 }
                 <Button 
                     text={"QUERO ALIVIAR A DOR!"}
-                    onClick={()=> window.location.href="#container-sales"}
+                    onClick={handleClickButton}
                 />
             </div>
 

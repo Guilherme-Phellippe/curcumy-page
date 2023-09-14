@@ -11,13 +11,16 @@ const VideoSalesLater = () => {
     useEffect(() => {
         const iframe = containerFrameRef.current.querySelector("iframe")
         const playerVimeo = new Vimeo(iframe, { id: '863621288', });
-
+        // eslint-disable-next-line no-undef
+        fbq('trackCustom', 'Vsl_VideoLoad', { describe: "O video da vsl foi carregado!" });
         setPlayer(playerVimeo)
     }, [])
 
     useEffect(() => {
         function addTimerPause(e) {
             e.preventDefault();
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Vsl_UserLeftThePage', { describe: "O usuário saiu da página" });
             addPauseLocalStorage();
         }
 
@@ -46,7 +49,7 @@ const VideoSalesLater = () => {
 
 
 
-                    <Controls 
+                    <Controls
                         player={player}
                     />
                 </div>

@@ -27,6 +27,13 @@ const depoiments = [
     },
 ]
 
+const handleClickButton = ()=>{
+    // eslint-disable-next-line no-undef
+    fbq('track', 'AddToWishlist', { button: "(Depoiment 1) - Testado e aprovado" });
+    window.location.href="#container-sales";
+}
+
+
 const Depoiments = () => {
 
     return (
@@ -54,7 +61,7 @@ const Depoiments = () => {
             </div>
             <Button
                 text={"QUERO ESSES RESULTADOS!"}
-                onClick={()=> window.location.href="#container-sales"}
+                onClick={handleClickButton}
                 my="16"
             />
             <div className="w-full lg:w-4/5 px-8 lg:px-0 flex flex-col md:flex-row justify-center items-center gap-8 mt-8">

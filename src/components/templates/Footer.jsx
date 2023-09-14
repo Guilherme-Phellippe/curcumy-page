@@ -3,6 +3,19 @@ import Button from "../utils/Button"
 import OptimizedImg from "../utils/OptimizedImg"
 
 const Footer = () => {
+
+    const handleTrackOrder = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('trackCustom', 'Sp_TrackOrder');
+        window.open("https://rastreamento.correios.com.br/app/index.php")
+    }
+
+    const handleClickButtonWhatsapp = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'Lead', { Lead: "Whatsapp footer direct" });
+        window.open("https://api.whatsapp.com/send?phone=5535991368790&text=Ol%C3%A1,%20estou%20com%20uma%20d%C3%BAvida%20sobre%20o%20produto%20Curcumy...")
+    }
+
     return (
         <div className="w-full flex flex-col gap-4 pt-16 bg-gradient-to-b from-[#592400] to-[#0b0500]">
             <div className="flex flex-col md:flex-row">
@@ -10,7 +23,7 @@ const Footer = () => {
                     <h3 className="font-bold text-white text-3xl md:text-2xl">Rastreio</h3>
                     <div className="text-xl">
                         <Button
-                            onClick={() => window.open("https://rastreamento.correios.com.br/app/index.php")}
+                            onClick={handleTrackOrder}
                             icon={<Truck size={30} />}
                             text="Rastrear pedido"
                             animate={false}
@@ -21,7 +34,7 @@ const Footer = () => {
                     <h3 className="font-bold text-white text-3xl md:text-2xl">Atendimento</h3>
                     <div className="text-xl">
                         <Button
-                            onClick={() => window.open("https://api.whatsapp.com/send?phone=5535991368790&text=Ol%C3%A1,%20estou%20com%20uma%20d%C3%BAvida%20sobre%20o%20produto%20Curcumy...")}
+                            onClick={handleClickButtonWhatsapp}
                             icon={<WhatsappLogo size={30} />}
                             text="Whatsapp"
                             animate={false}
@@ -32,8 +45,8 @@ const Footer = () => {
                 <div className="w-full md:w-1/4 flex flex-col items-center my-8 md:my-0">
                     <h3 className="font-bold text-white text-2xl">Links </h3>
                     <div className="flex flex-col items-center md:items-start">
-                        <a href="/">Politicas de privacidade</a>
-                        <a href="/">Termos de uso</a>
+                        <a href="/politicas">Politicas de privacidade</a>
+                        <a href="/termos">Termos de uso</a>
                         <a href="https://rastreamento.correios.com.br/app/index.php" target="_blank" rel="noreferrer">Rastrear pedido</a>
                     </div>
                 </div>

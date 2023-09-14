@@ -23,7 +23,6 @@ export function calculateTimerByCurrentTimer(){
     const timerWatched = JSON.parse(localStorage.getItem("timerWatched"));
     const currentTime = getTimeCurrent()
     
-    console.log(timerWatched)
     if(timerWatched){
         if(timerWatched.play >= timerWatched.pause){
             let differenceValues = Math.floor(currentTime - timerWatched.play);

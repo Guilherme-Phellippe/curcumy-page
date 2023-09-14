@@ -25,7 +25,7 @@ const CommonQuestions = () => {
             a: "O Curcumy não tem um gosto forte, ele tem um sabor suave de abacaxi.",
         },
         {
-            q: "Quanto tempo leva para o Curcumyfazer efeito?",
+            q: "Quanto tempo leva para o Curcumy fazer efeito?",
             a: "Isso depende de cada pessoa, mas o Curcumy começa a fazer efeito logo nos primeiros dias de uso.",
         },
         {
@@ -40,7 +40,6 @@ const CommonQuestions = () => {
 
 
     const handleClickQuestion = ({ currentTarget }) => {
-        console.log("oi")
         const h3 = currentTarget.querySelector("h3");
         const p = currentTarget.querySelector("p");
 
@@ -48,6 +47,12 @@ const CommonQuestions = () => {
         h3.classList.toggle("rounded-t-lg")
         p.classList.toggle("rounded-b-lg")
         p.classList.toggle("hidden")
+    }
+
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(Common Question) - PERGUNTAS FREQUENTES" });
+        window.location.href="#container-sales";
     }
 
 
@@ -69,7 +74,7 @@ const CommonQuestions = () => {
 
             </div>
             <Button
-                onClick={() => window.location.href = "#container-sales"}
+                onClick={handleClickButton}
                 text={"QUERO EXPERIMENTAR O CURCUMY!"} />
         </div>
     )

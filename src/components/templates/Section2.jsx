@@ -13,7 +13,11 @@ const Section2 = () => {
         "Deixou de fazer coisas que você gosta por causa da dor?"
     ]
 
-
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(Section 2) - Não permita que a dor..." });
+        window.location.href="#container-sales";
+    }
 
     return (
         <div className="w-full flex flex-col items-center justify-center py-16">
@@ -36,7 +40,7 @@ const Section2 = () => {
 
             <Button 
                 text={"QUERO CURAR MINHA DOR!"} 
-                onClick={()=> window.location.href="#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
     )

@@ -25,6 +25,12 @@ const depoiments = [
 
 const Depoiments2 = () => {
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "(depoiments 2) - Depoimentos reais de quem já usou o Curcumy!" });
+        window.location.href="#container-sales";
+    }
+
     return (
         <div className="w-full py-16 flex flex-col justify-center items-center">
 
@@ -54,7 +60,7 @@ const Depoiments2 = () => {
             </div>
             <Button 
                 text={"QUERO ESSES RESULTADOS!"} 
-                onClick={()=> window.location.href="#container-sales"}
+                onClick={handleClickButton}
             />
         </div>
     )

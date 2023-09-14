@@ -18,17 +18,28 @@ import Section9 from "../components/templates/Section9"
 import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
 import Whatsapp from "../components/templates/Whatsapp"
-import GetWhatsapp from "../components/modals/getWhatsapp"
+import GetWhatsapp from "../modals/getWhatsapp"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
 
-    useEffect(()=>{
-        const timerout = setTimeout(()=>{
+    useEffect(() => {
+        const timerout = setTimeout(() => {
             setLoad(true)
             clearTimeout(timerout)
         }, 3000)
-    },[])
+    }, [])
+
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'UserIsInterested', { describe: "Usuario passou mais de 2 minutos visualizando a pagina de vendas" });
+            clearTimeout(timeout)
+        }, 120000);
+
+        return ()=>  clearTimeout(timeout)
+    }, [])
 
     return (
         <div className="w-screen">
@@ -51,7 +62,7 @@ const Home = () => {
                     <Suspense fallback={<span>Loading...</span>}><Section9 /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><Section10 /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><Depoiments2 /></Suspense>
-                    <Suspense fallback={<span>Loading...</span>}><Sale /></Suspense>
+                    <Suspense fallback={<span>Loading...</span>}><Sale page="Sales Page" /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><Section11 /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><CommonQuestions /></Suspense>
                     <Suspense fallback={<span>Loading...</span>}><Footer /></Suspense>

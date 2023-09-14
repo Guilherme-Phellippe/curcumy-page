@@ -13,6 +13,12 @@ const Main = () => {
         "Promove a reparação do tecido cartilaginoso",
     ]
 
+    const handleClickButton = ()=>{
+        // eslint-disable-next-line no-undef
+        fbq('track', 'AddToWishlist', { button: "main" });
+        window.location.href="#container-sales";
+    }
+
 
     return (
         <div
@@ -43,7 +49,7 @@ const Main = () => {
                         </h1>
                         <ListWithCheck list={beneficios} />
                         <Button 
-                            onClick={()=> window.location.href="#container-sales"}
+                            onClick={handleClickButton}
                             text={"QUERO ALIVIAR A DOR!"} 
                         />
                     </div>
