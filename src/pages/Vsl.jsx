@@ -2,6 +2,7 @@ import HeadLine from "../components/templates/HeadLine"
 import HeaderVsl from "../components/templates/HeaderVsl"
 import VideoSalesLater from "../components/templates/VideoSalesLater"
 import SalesVsl from "../components/templates/SalesVsl"
+import Whatsapp from "../components/templates/Whatsapp"
 
 const Vsl = () => {
     return (
@@ -10,6 +11,7 @@ const Vsl = () => {
             <HeadLine />
             <VideoSalesLater />
             <SalesVsl />
+            <Whatsapp />
         </div>
     )
 }

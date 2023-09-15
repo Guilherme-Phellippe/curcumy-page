@@ -15,12 +15,12 @@ const SalesVsl = () => {
         const interval = setInterval(() => {
             const timerWatched = calculateTimerByCurrentTimer();
 
-            if (timerWatched >= 1580) {
+            if (timerWatched.analyzeTime && timerWatched.timer >= 1580) {
                 // eslint-disable-next-line no-undef
                 fbq('trackCustom', 'Vsl_ShowCurcumyContent', { describe: "O conteúdo o curcumy para venda foi exibido" });
                 setContainer({ comment: true, sales: true })
                 clearInterval(interval)
-            } else if (timerWatched >= 1000) {
+            } else if (timerWatched.analyzeTime && timerWatched.timer >= 1000) {
                 // eslint-disable-next-line no-undef
                 fbq('trackCustom', 'Vsl_ShowComments', { describe: "O conteúdo dos comentários foi exibido" });
                 setContainer({ comment: true });

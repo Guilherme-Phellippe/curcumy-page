@@ -85,14 +85,16 @@ const Controls = ({ player }) => {
 
     const handleSaveProgress = async (canPlay) => {
         const currentTime = Number(getTimeCurrent())
-        var timerWatched = JSON.parse(localStorage.getItem("timerWatched")) || { timer: 0, play: currentTime, pause: currentTime };
+        const timerWatched = JSON.parse(localStorage.getItem("timerWatched")) || { timer: 0, play: currentTime, pause: currentTime, analyzeTime: true };
 
         if (canPlay) {
             timerWatched.play = Number(currentTime)
+            timerWatched.analyzeTime = true
             localStorage.setItem("timerWatched", JSON.stringify(timerWatched))
             setPlay(true)
         } else {
             timerWatched.pause = Number(currentTime)
+            timerWatched.analyzeTime = true
             localStorage.setItem("timerWatched", JSON.stringify(timerWatched))
             setPlay(false)
         }
@@ -119,7 +121,7 @@ const Controls = ({ player }) => {
             >
                 {
                     userAlreadyWatching ?
-                        <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col items-center rounded-xl shadow-xl">
+                        <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col md:justify-center items-center rounded-xl shadow-xl">
                             <h2 className="text-white text-2xl font-bold text-center py-4">Você já começou a assistir esse vídeo</h2>
                             <div className="flex flex-col gap-4 text-xl text-white font-bold">
                                 <div

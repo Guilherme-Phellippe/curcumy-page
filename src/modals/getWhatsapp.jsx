@@ -17,7 +17,7 @@ const GetWhatsapp = () => {
                 refContainer.current.classList.add("bg-[#fffa]")
                 clearTimeout(timeout.current)
             }, 1000);
-        }, 5000);
+        }, 60000);
     }, [])
 
     const handleClose = ({ target }) => {

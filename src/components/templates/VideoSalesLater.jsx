@@ -13,21 +13,13 @@ const VideoSalesLater = () => {
         const playerVimeo = new Vimeo(iframe, { id: '863621288', });
         // eslint-disable-next-line no-undef
         fbq('trackCustom', 'Vsl_VideoLoad', { describe: "O video da vsl foi carregado!" });
-        setPlayer(playerVimeo)
+        setPlayer(playerVimeo);
     }, [])
 
     useEffect(() => {
-        function addTimerPause(e) {
-            e.preventDefault();
-            // eslint-disable-next-line no-undef
-            fbq('trackCustom', 'Vsl_UserLeftThePage', { describe: "O usuário saiu da página" });
-            addPauseLocalStorage();
-        }
-
-        window.addEventListener("beforeunload", addTimerPause)
-
-        return () => window.removeEventListener("beforeunload", addTimerPause)
-    })
+        window.addEventListener("beforeunload", addPauseLocalStorage)
+        return () => window.removeEventListener("beforeunload", addPauseLocalStorage)
+    },[])
 
 
     return (
