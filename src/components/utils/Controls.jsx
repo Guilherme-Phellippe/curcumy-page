@@ -11,17 +11,36 @@ const Controls = ({ player }) => {
     const [userAlreadyWatching, setUserAlreadyWatching] = useState();
 
     useEffect(() => {
+        function calcTimeInprogress(timer) {
+            let newResult = timer;
+            if (timer <= 10) newResult = 10
+            else if (timer <= 20) newResult = 20
+            else if (timer <= 37) newResult = 35
+            else if (timer <= 70) newResult =  50
+            else if (timer <= 170) newResult = 60
+            else if (timer <= 370) newResult = 70
+            else if (timer <= 704) newResult = 80
+            else if (timer <= 1704) newResult = 90
+            return newResult;
+        }
+
+
         const timerWatched = JSON.parse(localStorage.getItem("timerWatched"));
-        var counter = timerWatched ? timerWatched.timer : 0;
+        var counter = timerWatched ? calcTimeInprogress(timerWatched.timer) : 0;
 
         const interval = setInterval(() => {
             if (!play || counter >= 100) clearInterval(interval);
 
-            if (counter <= 87) counter++
-            else if (counter <= 94) counter += 0.15
-            else if (counter <= 100) counter += 0.06
+            if (counter <= 20) counter += 2.1
+            else if (counter <= 35) counter += 1.5
+            else if (counter <= 50) counter += .9
+            else if (counter <= 60) counter += .3
+            else if (counter <= 70) counter += 0.1
+            else if (counter <= 80) counter += 0.05
+            else if (counter <= 90) counter += 0.03
+            else if (counter <= 100) counter += 0.01
 
-            progressRef.current.style.width = `${Math.floor(counter)}%`;
+            progressRef.current.style.width = `${counter.toFixed(2)}%`;
         }, 1000);
 
         return () => clearInterval(interval);

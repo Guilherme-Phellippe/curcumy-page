@@ -18,7 +18,7 @@ const HeaderVsl = () => {
 
                 if(response.status === 200){
                     const city = response.data.address.city;
-                    city ? setCity(city) : setCity("Brasil")
+                    city ? setCity(city) : setCity("Brasil");
                 }else setCity("Brasil")
 
 
