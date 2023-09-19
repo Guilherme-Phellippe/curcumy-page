@@ -5,7 +5,7 @@ const Whatsapp = () => {
     const refTextImg = useRef();
 
     useEffect(() => {
-        const interval = setInterval(() => {
+        const interval = setTimeout(() => {
             refTextImg.current.classList.toggle("opacity-0")
             refTextImg.current.classList.toggle("opacity-100")
             refTextImg.current.classList.toggle("-translate-x-full")
@@ -16,7 +16,7 @@ const Whatsapp = () => {
                 clearTimeout(timeout)
             }, 3000);
 
-        }, 30000);
+        }, 10000);
 
         return () => clearInterval(interval)
     }, [])
