@@ -29,7 +29,7 @@ const HeaderVsl = () => {
 
     return (
         <div className="w-full flex justify-center bg-gradient-to-r from-green-500 to-green-800">
-            <h2 className="w-full text-lg md:text-xl text-center font-bold text-white px-1 pt-2 sm:p-4">
+            <h2 className="w-full text-lg md:text-xl text-center font-bold text-white leading-6 md:leading-8 sm:p-4">
                 Selecionamos você e mais 
                 <span className="text-green-800 uppercase bg-white px-1 rounded-full mx-1">5</span> 
                 Pessoas proximas {city ? "de ":"da sua"}
