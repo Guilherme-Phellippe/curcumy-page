@@ -129,7 +129,7 @@ const Controls = ({ player }) => {
                 onClick={handlePlayPause}
             >
                 <div
-                    className="w-[100px] h-[100px] bg-yellow-500/80 flex justify-center items-center cursor-pointer rounded-full"
+                    className="w-[100px] h-[100px] bg-green-500/80 flex justify-center items-center cursor-pointer rounded-full"
                 >
                     <Play className="text-6xl fill-white" />
                 </div>
@@ -141,7 +141,7 @@ const Controls = ({ player }) => {
             >
                 {
                     userAlreadyWatching ?
-                        <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col md:justify-center items-center rounded-xl shadow-xl">
+                        <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-green-500 flex flex-col md:justify-center items-center rounded-xl shadow-xl">
                             <h2 className="text-white text-2xl font-bold text-center py-4">Você já começou a assistir esse vídeo</h2>
                             <div className="flex flex-col gap-4 text-xl text-white font-bold">
                                 <div
@@ -167,7 +167,7 @@ const Controls = ({ player }) => {
                         :
                         <div
                             onClick={handleStartVideo}
-                            className="w-4/5 h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-yellow-500 flex flex-col justify-center items-center rounded-xl shadow-xl"
+                            className="w-4/5 h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-green-500 flex flex-col justify-center items-center rounded-xl shadow-xl"
                         >
                             <h2 className="text-white text-2xl font-bold">Seu video já começou!</h2>
                             <SpeakerSlash className="text-white text-9xl" />
@@ -179,7 +179,7 @@ const Controls = ({ player }) => {
             <div className="w-full h-[10px] absolute bottom-0 left-0 flex justify-start">
                 <div
                     ref={progressRef}
-                    className="w-[0%] h-full bg-yellow-600"
+                    className="w-[0%] h-full bg-green-600"
                 ></div>
             </div>
         </>
