@@ -46,10 +46,6 @@ const Presell = () => {
     }
 
 
-    const handleAjustInput = ({ currentTarget })=>{
-         currentTarget.scrollIntoView({ behavior: "smooth" })
-    }
-
     return (
         <div className="w-screen min-h-screen bg-gradient-to-br from-green-400 via-green-100 to-white grid place-items-center">
             <div className="w-full flex flex-col items-center md:gap-4">
@@ -82,7 +78,6 @@ const Presell = () => {
                                 autoComplete="on"
                                 className="w-3/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
                                 onChange={handleFormatNumber}
-                                onClick={handleAjustInput}
                                 onKeyDown={(e)=> e.code === "Enter" && handleSubmitForm(e)}
                             />
                             <p
