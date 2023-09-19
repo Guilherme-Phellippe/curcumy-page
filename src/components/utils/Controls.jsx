@@ -83,6 +83,7 @@ const Controls = ({ player }) => {
     }
 
     const handleStartVideo = () => {
+        localStorage.removeItem("sender_events_facebook")
         localStorage.removeItem("timerWatched")
         player.setCurrentTime(0)
         player.setMuted(false)

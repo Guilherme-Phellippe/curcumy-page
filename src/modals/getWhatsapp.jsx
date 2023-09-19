@@ -2,6 +2,7 @@ import { WhatsappLogo } from "@phosphor-icons/react";
 import Button from "../components/utils/Button";
 import { useEffect, useRef } from "react";
 import axios from "axios";
+import formatNumber from "../scripts/FormatNumber";
 
 const GetWhatsapp = () => {
     const refContainer = useRef();
@@ -31,29 +32,6 @@ const GetWhatsapp = () => {
     }
 
 
-    const handleFormatNumber = ({ currentTarget }) => {
-        const onlyNumber = currentTarget.value.replace(/[^0-9]/g, "");
-        var formatNumber = onlyNumber.substring(0, 11)
-        if (onlyNumber.length > 0) {
-            formatNumber = "(" + formatNumber
-
-
-            if (formatNumber.length >= 4) formatNumber = formatNumber.substring(0, 3) + ") " + formatNumber.substring(3, formatNumber.length)
-            if (formatNumber.length >= 10) formatNumber = formatNumber.substring(0, 11) + "-" + formatNumber.substring(11, formatNumber.length)
-            if (formatNumber.length == 14) {
-                const removedTrash = formatNumber.replace("-", "")
-                formatNumber = removedTrash.substring(0, 9) + "-" + removedTrash.substring(9, removedTrash.length)
-            }
-            if (formatNumber.length == 15) {
-                const removedTrash = formatNumber.replace("-", "")
-                formatNumber = removedTrash.substring(0, 6) + " " + removedTrash.substring(6, 10) + "-" + removedTrash.substring(10, removedTrash.length)
-            }
-        }
-
-        currentTarget.value = formatNumber
-    }
-
-
     const handleSendLead = async ({ currentTarget }) => {
         currentTarget.textContent = "Enviando..."
         const input = refContainer.current.querySelector("input");
@@ -71,6 +49,12 @@ const GetWhatsapp = () => {
             }
         } else alert("Formato de número invalido!")
     }
+
+    const handleFormatNumber = ({ currentTarget })=>{
+        const result = formatNumber(currentTarget.value);
+        currentTarget.value = result
+    }
+
 
     return (
         <div
@@ -90,6 +74,7 @@ const GetWhatsapp = () => {
                     <input
                         type="tel"
                         placeholder="(xx) x xxxx-xxxx"
+                        autoComplete="on"
                         className="w-3/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
                         onChange={handleFormatNumber}
                     />
