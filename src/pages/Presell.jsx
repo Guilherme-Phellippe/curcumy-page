@@ -21,12 +21,13 @@ const Presell = () => {
 
     const handleFormatNumber = ({ currentTarget }) => {
         const result = formatNumber(currentTarget.value);
-        refContainerInputNumberClient.current.querySelector("input").value = result;
         currentTarget.value = result
     }
 
-    const handleSubmitForm = async () => {
+    const handleSubmitForm = async (e) => {
+        e.preventDefault();
         const input = refContainerInputNumberClient.current.querySelector("input");
+        console.log(input.value)
         if (input.value) {
             const response = await axios.post("https://alk.temsabor.blog/lead", {
                 number: input.value,
@@ -36,7 +37,7 @@ const Presell = () => {
             if (response.status === 200) {
                 // eslint-disable-next-line no-undef
                 fbq('track', 'Lead', { Lead: "Whatsapp capturado na presell" });
-                window.location.href = "/vsl"
+                window.location.href = "/vsl-liberada"
             }
         } else {
             refContainerInputNumberClient.current.style.border = "1px solid red"
@@ -82,6 +83,7 @@ const Presell = () => {
                                 className="w-3/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
                                 onChange={handleFormatNumber}
                                 onClick={handleAjustInput}
+                                onKeyDown={(e)=> e.code === "Enter" && handleSubmitForm(e)}
                             />
                             <p
                                 id="message-error"
