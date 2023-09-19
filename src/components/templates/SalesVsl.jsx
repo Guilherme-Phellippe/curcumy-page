@@ -20,13 +20,12 @@ const SalesVsl = () => {
                 if (!sendersEventesFacebook?.hundred) {
                     // eslint-disable-next-line no-undef
                     fbq('trackCustom', 'Vsl_Watched_100%', { describe: "O vídeo foi reproduzido 100%" });
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_ShowCurcumyContent', { describe: "O conteúdo o curcumy para venda foi exibido" });
                     localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true, fifty: true, senventyFive: true, hundred: true }))
-
+                    setContainer({ comment: true, sales: true })
+                    clearInterval(interval)
                 }
-                // eslint-disable-next-line no-undef
-                fbq('trackCustom', 'Vsl_ShowCurcumyContent', { describe: "O conteúdo o curcumy para venda foi exibido" });
-                setContainer({ comment: true, sales: true })
-                clearInterval(interval)
             }
             else if (timerWatched.analyzeTime && timerWatched.timer >= 1500) {
                 if (!sendersEventesFacebook?.senventyFive) {
@@ -38,12 +37,11 @@ const SalesVsl = () => {
                 if (!sendersEventesFacebook?.fifty) {
                     // eslint-disable-next-line no-undef
                     fbq('trackCustom', 'Vsl_Watched_50%', { describe: "O vídeo foi reproduzido 50%" });
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_ShowComments', { describe: "O conteúdo dos comentários foi exibido" });
                     localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true, fifty: true, }))
+                    setContainer({ comment: true });
                 }
-
-                // eslint-disable-next-line no-undef
-                fbq('trackCustom', 'Vsl_ShowComments', { describe: "O conteúdo dos comentários foi exibido" });
-                setContainer({ comment: true });
             } else if (timerWatched.analyzeTime && timerWatched.timer >= 500) {
                 if (!sendersEventesFacebook?.twentyFive) {
                     // eslint-disable-next-line no-undef
