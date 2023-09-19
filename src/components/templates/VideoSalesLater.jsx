@@ -11,8 +11,6 @@ const VideoSalesLater = () => {
     useEffect(() => {
         const iframe = containerFrameRef.current.querySelector("iframe")
         const playerVimeo = new Vimeo(iframe, { id: '863621288', });
-        // eslint-disable-next-line no-undef
-        fbq('trackCustom', 'Vsl_VideoLoad', { describe: "O video da vsl foi carregado!" });
         setPlayer(playerVimeo);
     }, [])
 

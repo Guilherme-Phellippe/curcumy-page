@@ -14,16 +14,54 @@ const SalesVsl = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             const timerWatched = calculateTimerByCurrentTimer();
+            const sendersEventesFacebook = JSON.parse(localStorage.getItem("sender_events_facebook"));
 
             if (timerWatched.analyzeTime && timerWatched.timer >= 2000) {
+                if (!sendersEventesFacebook?.hundred) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_100%', { describe: "O vídeo foi reproduzido 100%" });
+                    localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true, fifty: true, senventyFive: true, hundred: true }))
+
+                }
                 // eslint-disable-next-line no-undef
                 fbq('trackCustom', 'Vsl_ShowCurcumyContent', { describe: "O conteúdo o curcumy para venda foi exibido" });
                 setContainer({ comment: true, sales: true })
                 clearInterval(interval)
+            }
+            else if (timerWatched.analyzeTime && timerWatched.timer >= 1500) {
+                if (!sendersEventesFacebook?.senventyFive) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_75%', { describe: "O vídeo foi reproduzido 75%" });
+                    localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true, fifty: true, senventyFive: true, }))
+                }
             } else if (timerWatched.analyzeTime && timerWatched.timer >= 1000) {
+                if (!sendersEventesFacebook?.fifty) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_50%', { describe: "O vídeo foi reproduzido 50%" });
+                    localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true, fifty: true, }))
+                }
+
                 // eslint-disable-next-line no-undef
                 fbq('trackCustom', 'Vsl_ShowComments', { describe: "O conteúdo dos comentários foi exibido" });
                 setContainer({ comment: true });
+            } else if (timerWatched.analyzeTime && timerWatched.timer >= 500) {
+                if (!sendersEventesFacebook?.twentyFive) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_25%', { describe: "O vídeo foi reproduzido 25%" });
+                    localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true, twentyFive: true }))
+                }
+            } else if ((timerWatched.analyzeTime && timerWatched.timer >= 60)) {
+                if (!sendersEventesFacebook?.oneMin) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_1min', { describe: "O vídeo foi reproduzido por mais de 1 minuto" })
+                    localStorage.setItem("sender_events_facebook", JSON.stringify({ fiveSeconds: true, oneMin: true }))
+                }
+            } else if ((timerWatched.analyzeTime && timerWatched.timer >= 5)) {
+                if (!sendersEventesFacebook?.fiveSeconds) {
+                    // eslint-disable-next-line no-undef
+                    fbq('trackCustom', 'Vsl_Watched_5s', { describe: "O vídeo foi reproduzido por mais de 5 segundos" });
+                    localStorage.setItem("sender_events_facebook",JSON.stringify({ fiveSeconds: true,}));
+                }
             }
 
         }, 10000)

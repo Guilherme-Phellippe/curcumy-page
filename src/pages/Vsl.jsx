@@ -8,13 +8,13 @@ import { Suspense } from "react"
 const Vsl = () => {
     return (
         <div className="w-screen bg-gradient-to-tr from-[#F1B681] to-[#ffffff]">
-            <Suspense fallback={"loading..."}>
+            <Suspense fallback={"Carregando..."}>
                 <HeaderVsl />
             </Suspense>
-            <Suspense fallback={"loading..."}>
+            <Suspense fallback={"Carregando..."}>
                 <HeadLine />
             </Suspense>
-            <Suspense fallback={"loading..."}>
+            <Suspense fallback={"Carregando..."}>
                 <VideoSalesLater />
             </Suspense>
             <SalesVsl />
