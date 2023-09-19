@@ -44,6 +44,11 @@ const Presell = () => {
         }
     }
 
+
+    const handleAjustInput = ({ currentTarget })=>{
+         currentTarget.scrollIntoView({ behavior: "smooth" })
+    }
+
     return (
         <div className="w-screen min-h-screen bg-gradient-to-br from-green-400 via-green-100 to-white grid place-items-center">
             <div className="w-full flex flex-col items-center md:gap-4">
@@ -76,6 +81,7 @@ const Presell = () => {
                                 autoComplete="on"
                                 className="w-3/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
                                 onChange={handleFormatNumber}
+                                onClick={handleAjustInput}
                             />
                             <p
                                 id="message-error"
@@ -88,7 +94,7 @@ const Presell = () => {
                             className="bg-green-300 w-full p-4 text-xl text-green-900 font-bold cursor-pointer mt-10"
                         >Acessar conteúdo grátis</button>
                         <span
-                            className="text-zinc-100/40 underline cursor-pointer"
+                            className="text-zinc-100/30 underline cursor-pointer"
                             onClick={() => window.location.href = "/vsl-liberada"}
                         >Pular</span>
                     </div>
@@ -96,7 +102,7 @@ const Presell = () => {
 
             </div>
 
-            <span className="w-full md:w-1/2 flex justify-center text-center">
+            <span className="w-full pb-12 md:w-1/2 flex justify-center text-center mt-16">
                 Esse não não está sobre a autoridade do Facebook por isso qualquer conteúdo que for exibido nessa página está por inteira responsabilidade de seus produtos!
             </span>
         </div>
