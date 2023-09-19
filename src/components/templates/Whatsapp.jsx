@@ -9,7 +9,14 @@ const Whatsapp = () => {
             refTextImg.current.classList.toggle("opacity-0")
             refTextImg.current.classList.toggle("opacity-100")
             refTextImg.current.classList.toggle("-translate-x-full")
-        }, 20000);
+            const timeout = setTimeout(() => {
+                refTextImg.current.classList.add("opacity-0")
+                refTextImg.current.classList.remove("opacity-100")
+                refTextImg.current.classList.remove("-translate-x-full")
+                clearTimeout(timeout)
+            }, 3000);
+
+        }, 30000);
 
         return () => clearInterval(interval)
     }, [])
