@@ -21,8 +21,8 @@ const VideoSalesLater = () => {
 
 
     return (
-        <div className="flex flex-col my-8 mb-32">
-            <h2 className="flex justify-center items-center gap-1 sm:gap-4 font-bold text-lg sm:text-2xl text-black my-4">
+        <div className="flex flex-col my-4 md:my-8 mb-32">
+            <h2 className="flex justify-center items-center gap-1 sm:gap-4 font-bold text-lg sm:text-2xl text-black mb-2">
                 <SpeakerSimpleHigh /> Por favor, verifique se o som está ligado.
             </h2>
             <div className="w-full flex justify-center">
