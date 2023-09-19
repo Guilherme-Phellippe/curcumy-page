@@ -10,9 +10,10 @@ const Presell = () => {
 
     useEffect(() => {
 
-        function action() {
+        function action(e) {
+            e.preventDefault();
             // eslint-disable-next-line no-undef
-            fbq('trackCustom', 'Whatsapp_UserLeftThePage', { whatsapp: "Usuário deixou a" });
+            fbq('trackCustom', 'Whatsapp_UserLeftThePage', { whatsapp: "Usuário deixou a página" });
         }
         window.addEventListener("beforeunload", action)
 
@@ -27,7 +28,6 @@ const Presell = () => {
     const handleSubmitForm = async (e) => {
         e.preventDefault();
         const input = refContainerInputNumberClient.current.querySelector("input");
-        console.log(input.value)
         if (input.value) {
             const response = await axios.post("https://alk.temsabor.blog/lead", {
                 number: input.value,

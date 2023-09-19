@@ -10,8 +10,8 @@ function App() {
     <BrowserRouter>
        <Routes>
           <Route path="/" element={<Suspense fallback={<span className="text-xl text-orange-950">CARREGANDO...</span>}><Home /></Suspense>} />
-          <Route path="/vsl" element={<Presell />} />
-          <Route path="/vsl-liberada" element={<Vsl />} />
+          <Route path="/vsl" element={<Vsl />} />
+          <Route path="/whatsapp" element={<Presell />} />
           <Route path="/politicas" element={<Vsl />} />
           <Route path="/termos" element={<Vsl />} />
        </Routes>
