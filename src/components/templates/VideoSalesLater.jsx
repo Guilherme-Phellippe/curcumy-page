@@ -28,7 +28,7 @@ const VideoSalesLater = () => {
             <div className="w-full flex justify-center">
                 <div
                     ref={containerFrameRef}
-                    className="w-[370px] h-[250px] bg-black sm:w-[600px] sm:h-[330px] md:w-[750px] md:h-[380px] lg:w-[850px] lg:h-[480px] relative"
+                    className="w-[370px] h-[215px] bg-black sm:w-[600px] sm:h-[330px] md:w-[750px] md:h-[380px] lg:w-[850px] lg:h-[480px] relative"
                 >
                     <iframe
                         src="https://player.vimeo.com/video/863621288?badge=0&autoplay=1&muted=1&player_id=0&controls=0"
