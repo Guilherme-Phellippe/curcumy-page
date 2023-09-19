@@ -142,13 +142,13 @@ const Controls = ({ player }) => {
                 {
                     userAlreadyWatching ?
                         <div className="w-[90%] h-4/5 sm:w-3/4 sm:h-3/4 border-1 border-white bg-green-500 flex flex-col md:justify-center items-center rounded-xl shadow-xl">
-                            <h2 className="text-white text-2xl font-bold text-center py-4">Você já começou a assistir esse vídeo</h2>
-                            <div className="flex flex-col gap-4 text-xl text-white font-bold">
+                            <h2 className="text-white text-lg md:text-2xl font-bold text-center py-2 md:py-4">Você já começou a assistir esse vídeo</h2>
+                            <div className="flex flex-col gap-4 text-md text-white font-bold mt-4">
                                 <div
                                     className="flex items-center gap-2"
                                     onClick={handleContinueVideo}
                                 >
-                                    <div className="w-[30px] h-[30px] grid place-items-center rounded-full border-2 border-white">
+                                    <div className="w-[25px] h-[25px] grid place-items-center rounded-full border-2 border-white">
                                         <Play />
                                     </div>
                                     Continuar assistindo?
@@ -157,7 +157,7 @@ const Controls = ({ player }) => {
                                     className="flex items-center gap-2"
                                     onClick={handleStartVideo}
                                 >
-                                    <div className="w-[30px] h-[30px] grid place-items-center rounded-full border-2 border-white">
+                                    <div className="w-[25px] h-[25px] grid place-items-center rounded-full border-2 border-white">
                                         <ArrowUDownLeft />
                                     </div>
                                     Assistir do inicio?
