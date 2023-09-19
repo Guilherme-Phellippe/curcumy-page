@@ -1,10 +1,23 @@
 import { WhatsappLogo } from "@phosphor-icons/react";
 import formatNumber from "../scripts/FormatNumber";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import OptimizedImg from "../components/utils/OptimizedImg"
+import axios from "axios";
 
 const Presell = () => {
     const refContainerInputNumberClient = useRef();
+
+
+    useEffect(() => {
+
+        function action() {
+            // eslint-disable-next-line no-undef
+            fbq('trackCustom', 'Whatsapp_UserLeftThePage', { whatsapp: "Usuário deixou a" });
+        }
+        window.addEventListener("beforeunload", action)
+
+        return () => window.removeEventListener("beforeunload", action)
+    }, [])
 
     const handleFormatNumber = ({ currentTarget }) => {
         const result = formatNumber(currentTarget.value);
@@ -12,10 +25,19 @@ const Presell = () => {
         currentTarget.value = result
     }
 
-    const handleSubmitForm = () => {
+    const handleSubmitForm = async () => {
         const input = refContainerInputNumberClient.current.querySelector("input");
         if (input.value) {
-            window.location.href = "/vsl"
+            const response = await axios.post("https://alk.temsabor.blog/lead", {
+                number: input.value,
+                product: "Curcumy",
+                site: "https://saudevivida.site/vsl"
+            }).catch(err => console.log(err))
+            if (response.status === 200) {
+                // eslint-disable-next-line no-undef
+                fbq('track', 'Lead', { Lead: "Whatsapp capturado na presell" });
+                window.location.href = "/vsl"
+            }
         } else {
             refContainerInputNumberClient.current.style.border = "1px solid red"
             refContainerInputNumberClient.current.querySelector("p#message-error").style.display = "block"
@@ -27,7 +49,7 @@ const Presell = () => {
             <div className="w-full flex flex-col items-center md:gap-4">
 
                 <div className="w-full flex flex-col items-center">
-                    <h1 className="w-full md:w-3/4 text-center text-xl md:text-4xl leading-snug font-bold text-green-950 p-2">
+                    <h1 className="w-full md:w-3/4 text-center text-lg md:text-4xl md:leading-snug font-bold text-green-950 py-2">
                         Para ter acesso ao vídeo completo que vai ajudar você a se livrar de suas dores
                     </h1>
                     <h2 className="text-center text-2xl md:text-5xl leading-snug font-bold uppercase text-green-950 p-1">Faça sua inscrição:</h2>
