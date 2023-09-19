@@ -31,7 +31,7 @@ const Presell = () => {
             const response = await axios.post("https://alk.temsabor.blog/lead", {
                 number: input.value,
                 product: "Curcumy",
-                site: "https://saudevivida.site/vsl"
+                site: "https://saudevivida.site/vsl-liberada"
             }).catch(err => console.log(err))
             if (response.status === 200) {
                 // eslint-disable-next-line no-undef
@@ -89,7 +89,7 @@ const Presell = () => {
                         >Acessar conteúdo grátis</button>
                         <span
                             className="text-zinc-100/40 underline cursor-pointer"
-                            onClick={() => window.location.href = "/vsl"}
+                            onClick={() => window.location.href = "/vsl-liberada"}
                         >Pular</span>
                     </div>
                 </div>
