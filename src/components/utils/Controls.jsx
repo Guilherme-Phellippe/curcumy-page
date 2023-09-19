@@ -13,7 +13,7 @@ const Controls = ({ player }) => {
     useEffect(() => {
         function calcTimeInprogress(timer) {
             let newResult = timer;
-            if (timer <= 10) newResult = 10
+            if (timer <= 10) newResult = 2
             else if (timer <= 20) newResult = 20
             else if (timer <= 37) newResult = 35
             else if (timer <= 70) newResult =  50
