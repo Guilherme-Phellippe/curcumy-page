@@ -54,17 +54,17 @@ const Presell = () => {
                     <h1 className="w-full md:w-3/4 text-center text-lg md:text-4xl md:leading-snug font-bold text-green-950 py-2">
                         Para ter acesso ao vídeo completo que vai ajudar você a se livrar de suas dores
                     </h1>
-                    <h2 className="text-center text-2xl md:text-5xl leading-snug font-bold uppercase text-green-950 p-1">Faça sua inscrição:</h2>
+                    <h2 className="text-center text-2xl md:text-5xl leading-snug font-bold uppercase text-green-950 p-1">Garanta acesso ao vídeo</h2>
                 </div>
 
                 <div className="w-full flex flex-col md:flex-row justify-center gap-4 items-center py-8">
-                    <div className="w-3/4  md:w-[500px]">
+                    <div className="w-[70%]  md:w-[500px]">
                         <OptimizedImg imgs={"https://i.ibb.co/3sgqLvH/Design-sem-nome-30-removebg-preview-1.webp"} alt="Dois idosos felizes" />
                     </div>
                     <div
-                        className="p-4 flex flex-col items-center justify-center gap-4 bg-green-700 rounded-xl shadow-md"
+                        className="p-4 flex flex-col items-center justify-center gap-2 md:gap-4 bg-green-700 rounded-xl shadow-md"
                     >
-                        <label className="text-white font-bold pb-4 text-xl text-center">Deixe seu whatsapp para ter acesso ao vídeo:</label>
+                        <label className="text-white font-bold pb-4 text-xl text-center">Deixe seu número para ter acesso ao vídeo:</label>
                         <div
                             className="flex items-center justify-start bg-zinc-100 px-4 rounded-xl relative"
                             ref={refContainerInputNumberClient}
@@ -76,24 +76,24 @@ const Presell = () => {
                                 type="tel"
                                 placeholder="(xx) x xxxx-xxxx"
                                 autoComplete="on"
-                                className="w-3/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
+                                className="w-4/5 bg-zinc-100 text-xl my-4 rounded-xl outline-none"
                                 onChange={handleFormatNumber}
                                 onKeyDown={(e)=> e.code === "Enter" && handleSubmitForm(e)}
                             />
                             <p
                                 id="message-error"
-                                className="w-full text-sm md:text-md text-center text-red-900 font-bold hidden absolute -bottom-10 left-1/2 -translate-x-1/2 bg-white p-1 rounded-xl"
+                                className="w-full text-sm md:text-md text-center text-red-900 font-bold hidden absolute -bottom-9 left-1/2 -translate-x-1/2 bg-white p-1 rounded-xl"
                             >Digite seu número correto antes de proseguir...</p>
                         </div>
                         <button
                             type="submit"
                             onClick={handleSubmitForm}
-                            className="bg-green-300 w-full p-4 text-xl text-green-900 font-bold cursor-pointer mt-10"
+                            className="bg-green-300 w-full p-4 text-xl text-green-900 font-bold cursor-pointer mt-8"
                         >Acessar conteúdo grátis</button>
-                        <span
-                            className="text-zinc-100/30 underline cursor-pointer"
+                        <button
                             onClick={() => window.location.href = "/vsl-liberada"}
-                        >Pular</span>
+                            className="bg-white w-full p-4 text-xl text-green-900 font-bold cursor-pointer"
+                        >Pular</button>
                     </div>
                 </div>
 

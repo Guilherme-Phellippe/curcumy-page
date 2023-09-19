@@ -7,7 +7,7 @@ import { Suspense } from "react"
 
 const Vsl = () => {
     return (
-        <div className="w-screen bg-gradient-to-tr from-green-200 to-[#ffffff]">
+        <div className="w-screen min-h-screen bg-gradient-to-tr from-green-200 to-[#ffffff]">
             <Suspense fallback={"Carregando..."}>
                 <HeaderVsl />
             </Suspense>
