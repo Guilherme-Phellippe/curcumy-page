@@ -29,8 +29,8 @@ const Home = () => {
 
     useEffect(() => {
         (async () => {
-            const client = await axios.get(`http://165.227.203.170:3333/clients`).catch(err => console.log(err));
-            if(client.status === 200) setClient(client.data)
+            const client = await axios.get(`https://api.saudevivida.site/clients`).catch(err => console.log(err));
+            if(client?.status === 200) setClient(client.data)
             
         })();
     }, [])
