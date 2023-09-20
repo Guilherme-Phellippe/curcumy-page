@@ -46,14 +46,19 @@ const Home = () => {
                 // eslint-disable-next-line no-undef
                 fbq('track', 'PageView');
             }
-
-
+            
+            
             const timerout = setTimeout(() => {
                 setLoad(true)
                 clearTimeout(timerout)
             }, 3000)
+        }else{
+            // eslint-disable-next-line no-undef
+            fbq('init', "2556646064501050");
+            // eslint-disable-next-line no-undef
+            fbq('track', 'PageView');
         }
-    }, [clients])
+    }, [clients, id_client])
 
 
     useEffect(() => {
