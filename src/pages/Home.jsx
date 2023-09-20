@@ -38,8 +38,6 @@ const Home = () => {
     useEffect(() => {
         if(client){
             const { pixel_fb }  = client[0]
-            console.log(pixel_fb)
-     
     
             // eslint-disable-next-line no-undef
             fbq('init', pixel_fb);
