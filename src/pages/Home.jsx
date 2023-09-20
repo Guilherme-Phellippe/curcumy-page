@@ -19,16 +19,40 @@ import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
 import Whatsapp from "../components/templates/Whatsapp"
 import GetWhatsapp from "../modals/getWhatsapp"
+import { useParams } from "react-router-dom"
+import axios from "axios"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
+    const [client, setClient] = useState();
+    const { id_client } = useParams();
 
     useEffect(() => {
-        const timerout = setTimeout(() => {
-            setLoad(true)
-            clearTimeout(timerout)
-        }, 3000)
+        (async () => {
+            const client = await axios.get(`http://165.227.203.170:3333/clients`).catch(err => console.log(err));
+            if(client.status === 200) setClient(client.data)
+            
+        })();
     }, [])
+
+    useEffect(() => {
+        if(client){
+            const { pixel_fb }  = client[0]
+            console.log(pixel_fb)
+     
+    
+            // eslint-disable-next-line no-undef
+            fbq('init', pixel_fb);
+            // eslint-disable-next-line no-undef
+            fbq('track', 'PageView');
+    
+    
+            const timerout = setTimeout(() => {
+                setLoad(true)
+                clearTimeout(timerout)
+            }, 3000)
+        }
+    }, [client])
 
 
     useEffect(() => {
@@ -38,7 +62,7 @@ const Home = () => {
             clearTimeout(timeout)
         }, 120000);
 
-        return ()=>  clearTimeout(timeout)
+        return () => clearTimeout(timeout)
     }, [])
 
     return (
