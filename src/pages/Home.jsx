@@ -24,7 +24,7 @@ import axios from "axios"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
-    const [client, setClient] = useState();
+    const [client, setClient] = useState()
     // const { id_client } = useParams();
 
     useEffect(() => {
