@@ -30,7 +30,7 @@ const Home = () => {
     useEffect(() => {
         (async () => {
             const client = await axios.get(`https://api.saudevivida.site/clients`).catch(err => console.log(err));
-            if(client?.status === 200) setClient(client.data)
+            if(client?.status === 200) setClient(client.data);
             
         })();
     }, [])
