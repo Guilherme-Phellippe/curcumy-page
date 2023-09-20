@@ -19,38 +19,41 @@ import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
 import Whatsapp from "../components/templates/Whatsapp"
 import GetWhatsapp from "../modals/getWhatsapp"
-// import { useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
-    const [client, setClient] = useState()
-    // const { id_client } = useParams();
+    const [clients, setClients] = useState()
+    const { id_client } = useParams();
 
     useEffect(() => {
         (async () => {
             const client = await axios.get(`https://api.saudevivida.site/clients`).catch(err => console.log(err));
-            if(client?.status === 200) setClient(client.data)
-            
+            if (client?.status === 200) setClients(client.data)
+
         })();
     }, [])
 
     useEffect(() => {
-        if(client){
-            const { pixel_fb }  = client[0]
-    
-            // eslint-disable-next-line no-undef
-            fbq('init', pixel_fb);
-            // eslint-disable-next-line no-undef
-            fbq('track', 'PageView');
-    
-    
+        if (clients) {
+            const client = clients.find(client => client.nome === id_client)
+            const pixel = client?.pixel_fb;
+
+            if(pixel){
+                // eslint-disable-next-line no-undef
+                fbq('init', pixel);
+                // eslint-disable-next-line no-undef
+                fbq('track', 'PageView');
+            }
+
+
             const timerout = setTimeout(() => {
                 setLoad(true)
                 clearTimeout(timerout)
             }, 3000)
         }
-    }, [client])
+    }, [clients])
 
 
     useEffect(() => {
