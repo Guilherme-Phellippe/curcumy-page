@@ -19,13 +19,13 @@ import Footer from "../components/templates/Footer"
 import { Suspense, useEffect, useState } from "react"
 import Whatsapp from "../components/templates/Whatsapp"
 import GetWhatsapp from "../modals/getWhatsapp"
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import axios from "axios"
 
 const Home = () => {
     const [canLoad, setLoad] = useState();
     const [client, setClient] = useState();
-    const { id_client } = useParams();
+    // const { id_client } = useParams();
 
     useEffect(() => {
         (async () => {
