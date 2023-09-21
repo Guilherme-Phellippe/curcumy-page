@@ -6,6 +6,7 @@ import Whatsapp from "../components/templates/Whatsapp"
 import { Suspense } from "react"
 
 const Vsl = () => {
+
     return (
         <div className="w-screen min-h-screen bg-gradient-to-tr from-green-200 to-[#ffffff]">
             <Suspense fallback={"Carregando..."}>
@@ -16,7 +17,7 @@ const Vsl = () => {
             </Suspense>
             <Suspense fallback={"Carregando..."}>
                 <VideoSalesLater />
-                <p className="text-center w-full md:w-1/2">
+                <p className="text-center w-full md:w-1/2 md:mx-auto">
                     2022 ©Copyright © 2021 Curcumy. Todos os direitos reservados.
                     Todo o conteúdo do site, todas as fotos, imagens, logotipos, marcas, layout,
                     aqui veículados são de propriedade exclusiva do Curcumy. É vedada qualquer reprodução, total ou parcial,

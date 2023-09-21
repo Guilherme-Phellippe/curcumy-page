@@ -19,6 +19,11 @@
       t.src = v; s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s)
     }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    // eslint-disable-next-line no-undef
+    fbq('init', "2556646064501050");
+    // eslint-disable-next-line no-undef
+    fbq('track', 'PageView');
+    
     //booster braip
     (function (w, d, s, t) {
       if (w._brpBstr) return; w._brpBstr = t; var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
