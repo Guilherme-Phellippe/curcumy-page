@@ -59,7 +59,7 @@ const Sale = ({ page }) => {
         <div id="container-sales" className="flex flex-col py-16 items-center bg-gradient-to-tl from-[#592400] to-[#271200]">
             <h2 className="text-white text-center text-3xl lg:text-4xl p-4 font-bold">ESCOLHA A MELHOR OFERTA PARA VOCÊ</h2>
             <h3 className="text-[#d7a224] text-2xl p-4 text-center sm:text-left">FRASCO EXTRA + FRETE GRÁTIS SOMENTE HOJE!</h3>
-            <div className="w-4/5 mx-auto flex flex-col md:flex-row items-center gap-6 my-16">
+            <div className="w-4/5 mx-auto flex flex-col md:flex-row md:justify-center items-center gap-6 my-16">
                 {
                     products.map((product, index) =>
                         <div
@@ -67,7 +67,7 @@ const Sale = ({ page }) => {
                             onClick={() => handlePurchaseProduct(product)}
                             className={`${index === 0 && "animate-grow-up z-50"} cursor-pointer`}
                         >
-                            <div className="w-full h-full bg-white relative p-2 rounded-xl flex flex-col items-center">
+                            <div className="w-full h-full bg-white relative p-2 px-4 rounded-xl flex flex-col items-center">
                                 <div className="w-[70px] absolute -top-[35px] right-0">
                                     <OptimizedImg imgs={"https://i.ibb.co/c15qVPH/Design-sem-nome-32-removebg-preview.png"} alt="Icone de promoção" />
                                     <div className="w-full h-full absolute top-0 flex flex-col justify-center items-center">
