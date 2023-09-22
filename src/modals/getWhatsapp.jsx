@@ -58,7 +58,7 @@ const GetWhatsapp = () => {
 
     return (
         <div
-            className="hidden scale-0 transition-transform duration-300 w-screen h-screen fixed top-0 left-0 z-50  place-items-center "
+            className="hidden scale-0 transition-transform duration-300 w-screen h-screen fixed top-0 left-0 z-50 place-items-center "
             ref={refContainer}
             onClick={handleClose}
             data-close="true"

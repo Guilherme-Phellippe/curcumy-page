@@ -65,7 +65,7 @@ const Sale = ({ page }) => {
                         <div
                             key={product.id}
                             onClick={() => handlePurchaseProduct(product)}
-                            className={`${index === 0 && "animate-grow-up z-50"} cursor-pointer`}
+                            className={`${index === 0 && "animate-grow-up z-40"} cursor-pointer`}
                         >
                             <div className="w-full h-full bg-white relative p-2 px-4 rounded-xl flex flex-col items-center">
                                 <div className="w-[70px] absolute -top-[35px] right-0">
